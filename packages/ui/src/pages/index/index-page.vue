@@ -2,7 +2,7 @@
   <q-page class="containe">
     <div class="primary-section">
       <div class="container">
-        <div class="row justify-center items-center">
+        <div class="items-center justify-center row">
           <div class="col-8">
             <h2>
               <span class="keyword">Manage</span>,
@@ -17,7 +17,7 @@
         </div>
       </div>
     </div>
-    <div class="row items-start justify-around full-width">
+    <div class="full-width items-start justify-around row">
       <div class="col-6">
         <auth-button
           v-if="!sourceAccessToken"
@@ -46,14 +46,16 @@
 </template>
 
 <script setup lang="ts">
+  import { storeToRefs } from 'pinia'
+
+  import { ACCOUNT_TYPE } from '@/ui/src/lib/spotify-oauth'
   import ArtistList from '@/ui/src/pages/index/components/artist-list.vue'
   import AuthButton from '@/ui/src/pages/index/components/auth-button.vue'
   import CopyButton from '@/ui/src/pages/index/components/copy-button.vue'
   import ProfileCard from '@/ui/src/pages/index/components/profile-card/profile-card.vue'
-  import { storeToRefs } from 'pinia'
-  import { ACCOUNT_TYPE } from '@/ui/src/lib/spotify-oauth'
   import { useSpotifyStore } from '@/ui/src/stores/spotify-store'
-  let code =
+
+  const code =
     'export const hello =\n\t(name) => {console.log(`Hello ${name}!`)};'
 
   const { sourceAccessToken, targetAccessToken } = storeToRefs(

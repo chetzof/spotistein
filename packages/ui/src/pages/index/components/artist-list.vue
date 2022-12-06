@@ -1,11 +1,11 @@
 <template>
   <q-table
     ref="tableRef"
+    v-model:selected="selected"
+    v-model:pagination="pagination"
     class="my-sticky-dynamic"
     virtual-scroll
-    v-model:selected="selected"
     :virtual-scroll-item-size="62"
-    v-model:pagination="pagination"
     :virtual-scroll-sticky-size-start="62"
     :loading="isLoading && isFetching"
     :rows="rows"
@@ -33,12 +33,13 @@
 </template>
 
 <script setup lang="ts">
-  import { useSpotifyStore } from '@/ui/src/stores/spotify-store'
   import { useInfiniteQuery } from '@tanstack/vue-query'
   import { QTableProps } from 'quasar'
+  import { ref } from 'vue'
+
   import { fetchUserFollowedArtists } from '@/ui/src/lib/spotify-client'
   import { ACCOUNT_TYPE } from '@/ui/src/lib/spotify-oauth'
-  import { ref } from 'vue'
+  import { useSpotifyStore } from '@/ui/src/stores/spotify-store'
 
   const properties = defineProps<{
     accountType: ACCOUNT_TYPE
@@ -89,8 +90,8 @@
       },
       enabled:
         properties.accountType === ACCOUNT_TYPE.SOURCE
-          ? !!useSpotifyStore().sourceAccessToken
-          : !!useSpotifyStore().targetAccessToken,
+          ? Boolean(useSpotifyStore().sourceAccessToken)
+          : Boolean(useSpotifyStore().targetAccessToken),
     })
 
   async function onScroll(

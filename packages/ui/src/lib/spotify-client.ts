@@ -1,9 +1,10 @@
 import ky from 'ky'
 import { KyInstance } from 'ky/distribution/types/ky'
-import { Artist, Paging, PrivateUser } from 'spotify-types'
+import { Artist, PrivateUser } from 'spotify-types'
+import { Opaque } from 'type-fest'
+
 import { ACCOUNT_TYPE } from '@/ui/src/lib/spotify-oauth'
 import { useSpotifyStore } from '@/ui/src/stores/spotify-store'
-import { Opaque } from 'type-fest'
 
 type SpotifyClient = Opaque<KyInstance>
 export function createClient(token: string): SpotifyClient {
@@ -45,14 +46,14 @@ export function useSpotifyClient(type: ACCOUNT_TYPE): SpotifyClient {
 export async function fetchUserProfile(
   accountType: ACCOUNT_TYPE,
 ): Promise<PrivateUser> {
-  return await useSpotifyClient(accountType).get('me').json<PrivateUser>()
+  return useSpotifyClient(accountType).get('me').json<PrivateUser>()
 }
 
 export async function fetchUserFollowedArtists(
   accountType: ACCOUNT_TYPE,
   { limit = 50, after = null }: { limit?: number; after?: string | null } = {},
 ) {
-  return await useSpotifyClient(accountType)
+  return useSpotifyClient(accountType)
     .get('me/following', {
       searchParams: {
         type: 'artist',

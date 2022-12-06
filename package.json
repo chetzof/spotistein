@@ -8,7 +8,9 @@
     "tes": "echo ${PWD}",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint '**/*.{js,ts,json,vue}'",
-    "eslint:config": "eslint --print-config .eslintrc.js > eslint-config.json",
+    "fix": "npm run fix:eslint & npm run fix:prettier",
+    "fix:prettier": "prettier --write .",
+    "fix:eslint": "eslint --fix .",
     "copy": "npm i ../lint-config/ && copy-and-watch --watch  ../lint-config node_modules/"
   },
   "author": "",

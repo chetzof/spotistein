@@ -25,7 +25,7 @@ export function getOAuth2URL(accountType: ACCOUNT_TYPE): string {
 }
 
 export function registerOauthTokenInStore() {
-  const hash = window.location.hash.substring(1)
+  const hash = window.location.hash.slice(1)
   const query = new URLSearchParams(hash)
 
   const spotifyStore = useSpotifyStore()

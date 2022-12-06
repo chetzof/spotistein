@@ -267,28 +267,28 @@
 <script setup lang="ts"></script>
 
 <style>
-.cls-1 {
-  fill: none;
-}
-.cls-2 {
-  clip-path: url(#clip-path);
-}
-.cls-3 {
-  fill: #52813e;
-}
-.cls-4 {
-  clip-path: url(#clip-path-2);
-}
-.cls-5 {
-  fill: #37132f;
-}
-.cls-6 {
-  clip-path: url(#clip-path-3);
-}
-.cls-7 {
-  fill: #8cd12e;
-}
-.cls-8 {
-  fill: #f8e0c4;
-}
+  .cls-1 {
+    fill: none;
+  }
+  .cls-2 {
+    clip-path: url(#clip-path);
+  }
+  .cls-3 {
+    fill: #52813e;
+  }
+  .cls-4 {
+    clip-path: url(#clip-path-2);
+  }
+  .cls-5 {
+    fill: #37132f;
+  }
+  .cls-6 {
+    clip-path: url(#clip-path-3);
+  }
+  .cls-7 {
+    fill: #8cd12e;
+  }
+  .cls-8 {
+    fill: #f8e0c4;
+  }
 </style>

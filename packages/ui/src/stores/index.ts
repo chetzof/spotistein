@@ -1,6 +1,6 @@
-import { store } from 'quasar/wrappers'
 import { createPinia } from 'pinia'
-import { Router } from 'vue-router';
+import { store } from 'quasar/wrappers'
+import { Router } from 'vue-router'
 
 /*
  * When adding new properties to stores, you should also
@@ -9,7 +9,7 @@ import { Router } from 'vue-router';
  */
 declare module 'pinia' {
   export interface PiniaCustomProperties {
-    readonly router: Router;
+    readonly router: Router
   }
 }
 
@@ -22,11 +22,8 @@ declare module 'pinia' {
  * with the Store instance.
  */
 
-export default store((/* { ssrContext } */) => {
-  const pinia = createPinia()
-
+export default store((/* { ssrContext } */) =>
   // You can add Pinia plugins here
   // pinia.use(SomePiniaPlugin)
 
-  return pinia
-})
+  createPinia())

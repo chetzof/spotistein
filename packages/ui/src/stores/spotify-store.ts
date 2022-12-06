@@ -7,14 +7,14 @@ export const useSpotifyStore = defineStore('spotify', () => {
     null,
     {
       writeDefaults: false,
-    }
+    },
   )
   const targetAccessToken = useLocalStorage<string | null>(
     'target-token',
     null,
     {
       writeDefaults: false,
-    }
+    },
   )
 
   return { sourceAccessToken, targetAccessToken }

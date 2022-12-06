@@ -1,7 +1,10 @@
 {
-  "extends": "chetzof-lint-config/tsconfig/tsconfig.json",
+  "extends": "@quasar/app-vite/tsconfig-preset",
   "compilerOptions": {
-    "baseUrl": "."
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["../*"]
+    }
   },
   "exclude": ["dist", ".quasar", "node_modules"]
 }

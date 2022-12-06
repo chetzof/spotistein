@@ -54,6 +54,10 @@ module.exports = configure((/* ctx */) => ({
       browser: ['es2019', 'edge88', 'firefox78', 'chrome87', 'safari13.1'],
       node: 'node16',
     },
+    alias: {
+      // eslint-disable-next-line @typescript-eslint/naming-convention
+      '@': path.resolve(path.join(__dirname, '../'))
+    },
 
     vueRouterMode: 'history', // available values: 'hash', 'history'
     // vueRouterBase,
@@ -74,21 +78,21 @@ module.exports = configure((/* ctx */) => ({
     // extendViteConf (viteConf) {},
     // viteVuePluginOptions: {},
 
-    vitePlugins: [
-      icons({
-        customCollections: {
-          // key as the collection name
-          custom: async () =>
-            fs.readFile(path.resolve('./src/assets/logo.svg'), 'utf8'),
-        },
-      }),
-    ],
+    // vitePlugins: [
+    //   icons({
+    //     customCollections: {
+    //       // key as the collection name
+    //       custom: async () =>
+    //         fs.readFile(path.resolve('./src/assets/logo.svg'), 'utf8'),
+    //     },
+    //   }),
+    // ],
   },
 
   // Full list of options: https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#devServer
   devServer: {
     // https: true
-    open: false, // opens browser window automatically
+    open: true, // opens browser window automatically
   },
 
   // https://v2.quasar.dev/quasar-cli-vite/quasar-config-js#framework

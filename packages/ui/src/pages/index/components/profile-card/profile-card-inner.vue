@@ -1,20 +1,20 @@
 <script setup lang="ts">
+  import { computed } from 'vue'
+
   import { ACCOUNT_TYPE } from '@/ui/src/lib/spotify-oauth'
   import { UserProfile } from '@/ui/src/queries/profile'
   import { useSpotifyStore } from '@/ui/src/stores/spotify-store'
-  import { computed } from 'vue'
 
   const properties = defineProps<{
     profile: UserProfile
     accountType: ACCOUNT_TYPE
   }>()
 
-  const avatar = computed(() => {
-    return (
+  const avatar = computed(
+    () =>
       properties.profile.avatar ??
-      'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png'
-    )
-  })
+      'https://cdn1.iconfinder.com/data/icons/user-pictures/100/unknown-512.png',
+  )
 
   function logOut() {
     const spotifyStore = useSpotifyStore()

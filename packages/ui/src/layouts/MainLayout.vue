@@ -8,7 +8,7 @@
         backdrop-filter: blur(7px);
       "
     >
-      <q-toolbar class="text-primary container-np q-py-md">
+      <q-toolbar class="container-np q-py-md text-primary">
         <!--        <icon-bar style="width: 200px; height: 200px" />-->
         <!--        <q-icon :name="logo" />-->
         <top-logo style="width: 300px" />
@@ -39,7 +39,8 @@
 </template>
 
 <script setup lang="ts">
+  import { ref } from 'vue'
+
   import TopLogo from '@/ui/src/layouts/top-logo.vue'
   import TopMenu from '@/ui/src/layouts/top-menu.vue'
-  import { ref } from 'vue'
 </script>

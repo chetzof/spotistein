@@ -1,8 +1,10 @@
-import { boot } from 'quasar/wrappers'
-import { registerOauthTokenInStore } from '@/ui/src/lib/spotify-oauth'
-import { VueQueryPlugin, VueQueryPluginOptions } from '@tanstack/vue-query'
 import { persistQueryClient } from '@tanstack/query-persist-client-core'
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
+import { VueQueryPlugin, VueQueryPluginOptions } from '@tanstack/vue-query'
+import { boot } from 'quasar/wrappers'
+
+import { registerOauthTokenInStore } from '@/ui/src/lib/spotify-oauth'
+
 export default boot(({ app }) => {
   const options: VueQueryPluginOptions = {
     queryClientConfig: {
@@ -16,12 +18,11 @@ export default boot(({ app }) => {
         },
       },
     },
-    clientPersisterr: (queryClient) => {
-      return persistQueryClient({
+    clientPersisterr: (queryClient) =>
+      persistQueryClient({
         queryClient,
         persister: createSyncStoragePersister({ storage: localStorage }),
-      })
-    },
+      }),
   }
   app.use(VueQueryPlugin, options)
   registerOauthTokenInStore()

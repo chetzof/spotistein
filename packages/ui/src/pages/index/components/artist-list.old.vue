@@ -2,8 +2,8 @@
   <q-table
     ref="tableRef"
     v-model:selected="selected"
-    class="my-sticky-dynamic"
     v-model:pagination="pagination"
+    class="my-sticky-dynamic"
     virtual-scroll
     :virtual-scroll-item-size="48"
     :virtual-scroll-sticky-size-start="48"
@@ -19,9 +19,11 @@
 <script setup lang="ts">
   import { useInfiniteQuery, useQueryClient } from '@tanstack/vue-query'
   import { QTableProps } from 'quasar'
+  import { computed, onMounted, ref } from 'vue'
+
   import { fetchUserFollowedArtists } from '@/ui/src/lib/spotify-client'
   import { ACCOUNT_TYPE } from '@/ui/src/lib/spotify-oauth'
-  import { computed, onMounted, ref } from 'vue'
+
   const properties = defineProps<{
     accountType: ACCOUNT_TYPE
   }>()
