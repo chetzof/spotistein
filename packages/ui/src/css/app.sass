@@ -1,0 +1,25 @@
+a
+  color: var(--q-secondary)
+  text-decoration: none
+
+.container-np
+  margin-right: auto
+  margin-left: auto
+  width: 100%
+
+  @media (min-width: $breakpoint-lg-min)
+    max-width: $breakpoint-lg-min
+
+.container
+  @extend .container-np
+  $padding: map-get($space-lg, 'x')
+  padding-left: $padding
+  padding-right: $padding
+
+  @media (max-width: $breakpoint-xs-max)
+    $padding: map-get($space-md, 'x')
+    padding-left: $padding
+    padding-right: $padding
+
+  @media (min-width: $breakpoint-lg-min)
+    max-width: $breakpoint-lg-min - $padding

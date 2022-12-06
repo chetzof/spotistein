@@ -1,0 +1,24 @@
+{
+  "name": "spotimy",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "prettier": "chetzof-lint-config/prettier/.prettierrc.js",
+  "scripts": {
+    "tes": "echo ${PWD}",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint '**/*.{js,ts,json,vue}'",
+    "eslint:config": "eslint --print-config .eslintrc.js > eslint-config.json",
+    "copy": "npm i ../lint-config/ && copy-and-watch --watch  ../lint-config node_modules/"
+  },
+  "author": "",
+  "license": "ISC",
+  "workspaces": [
+    "packages/ui"
+  ],
+  "devDependencies": {
+    "chetzof-lint-config": "^1.0.3",
+    "copy-and-watch": "^0.1.6",
+    "lint-config": "github:chetzof/lint-config"
+  }
+}
